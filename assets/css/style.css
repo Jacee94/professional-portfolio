@@ -50,6 +50,7 @@ h2{
     align-items: center;
     text-align: center;
     text-shadow: 0 0 5px black;
+    width:100%;
 }
 
 .section-header h1{
@@ -94,8 +95,8 @@ h2{
     display: flex;
     margin: 30px auto;
     justify-content: center;
-    align-items: center;
     width: min-content;
+    align-items: center;
     background-color: rgba(41, 66, 87, .75);
     border: solid 3px var(--verydarkblue);
     border-radius: 10px;
@@ -110,6 +111,10 @@ h2{
 .hero-text{
     width: 300px;
     margin: 20px 35px 20px 20px;
+}
+
+.hero-text p{
+    margin: 20px auto;
 }
 
 /* Projects CSS */
@@ -211,4 +216,69 @@ h2{
 
 .input-box input, .input-box textarea{
     background-color: var(--verylightblue)
+}
+
+@media screen and (max-width:1200px){
+    .header-shortcut{
+        margin: 0 20px;
+    }
+    
+    .section-header{
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .bio-content{
+        flex-wrap: wrap;
+    }
+
+    .bio-content p{
+        margin: 0 0 10px 0;
+    }
+
+    .hero-img, .hero-text{
+        width: 400px;
+        margin: 20px;
+    }
+
+    .main-project, .main-project img{
+        max-width: 95%;
+    }
+    
+    .secondary-project, .secondary-project-img{
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-header h1{
+        font-size: 36px;
+    }
+
+    .header-shortcut h2{
+        font-size: 30px;
+    }
+    
+    .hero-img, .hero-text{
+        width: 300px;
+    }
+
+    .contact-box{
+        flex-wrap: wrap;
+    }
+
+    .contact-form{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .section-projects{
+        padding: 0;
+    }
+
+    .project-container{
+        margin: 30px 0 0 0;
+    }
 }
