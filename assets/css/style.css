@@ -1,0 +1,54 @@
+:root{
+    --verydarkblue: #172531;
+    --darkblue: #203344;
+    --blue: #294257;
+    --lightblue: #456f93;
+    --verylightblue: #9bb7d0;
+    --white: #f0f4f8;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.section-header{
+    padding: 20px 35px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--verydarkblue);
+    color: white;
+    position: sticky;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.section-header h1:hover{
+    color: var(--verylightblue)
+}
+
+.header-shortcuts{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header-shortcut{
+    margin: 20px;
+}
+
+.header-shortcut a{
+    color:white;
+    text-decoration: none;
+}
+
+.header-shortcut a:hover{
+    color: var(--verylightblue);
+}
