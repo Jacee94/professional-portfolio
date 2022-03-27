@@ -15,8 +15,24 @@
 
 body{
     font-family: 'Times New Roman', Times, serif;
+    color: var(--white);
+    line-height: 1.5;
 }
 
+body p{
+    margin: 10px auto;
+}
+
+section{
+    padding: 30px;
+}
+
+h2{
+    font-size: 36px;
+    text-shadow: 1px 1px 5px black;
+}
+
+/* Header CSS */
 .section-header{
     padding: 20px 35px;
     display: flex;
@@ -29,6 +45,11 @@ body{
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    text-shadow: 0 0 5px black);
+}
+
+.section-header h1{
+    font-size: 44px;
 }
 
 .section-header h1:hover{
@@ -51,4 +72,38 @@ body{
 
 .header-shortcut a:hover{
     color: var(--verylightblue);
+}
+
+/* Hero/Bio Css */
+
+.section-about-me{
+    background-image: url(../images/bio-bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.section-about-me h2{
+    text-align: center;
+}
+
+.bio-content{
+    display: flex;
+    margin: 30px auto;
+    justify-content: center;
+    align-items: center;
+    width: min-content;
+    background-color: rgba(41, 66, 87, .75);
+    border: solid 3px var(--verydarkblue);
+    border-radius: 10px;
+}
+
+.hero-img{
+    width: 300px;
+    margin: 20px 35px 20px 20px;
+    border-radius: 5px;
+}
+
+.hero-text{
+    width: 300px;
+    margin: 20px 35px 20px 20px;
 }
