@@ -32,6 +32,10 @@ h2{
     text-shadow: 1px 1px 5px black;
 }
 
+.section-title{
+    text-align: center;
+}
+
 /* Header CSS */
 .section-header{
     padding: 20px 35px;
@@ -107,3 +111,34 @@ h2{
     width: 300px;
     margin: 20px 35px 20px 20px;
 }
+
+/* Projects CSS */
+
+.section-projects{
+    background-color: var(--lightblue);
+}
+
+.project-container{
+    margin: 30px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-project, .secondary-project{
+    margin: 20px auto;
+    text-align: center;
+    border: 3px var(--darkblue) solid;
+    padding: 20px;
+}
+
+.main-project-img{
+    max-width: 800px;
+    border: 3px var(--verydarkblue) solid;
+}
+
+.secondary-project-img{
+    max-width: 400px;
+    border: 3px var(--verydarkblue) solid;
+}
+
