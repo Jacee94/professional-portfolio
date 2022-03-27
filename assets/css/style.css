@@ -126,10 +126,11 @@ h2{
 }
 
 .main-project, .secondary-project{
-    margin: 20px auto;
+    margin: 20px 20px;
     text-align: center;
     border: 3px var(--darkblue) solid;
     padding: 20px;
+    background-color: var(--blue);
 }
 
 .main-project-img{
@@ -142,3 +143,72 @@ h2{
     border: 3px var(--verydarkblue) solid;
 }
 
+/* Contact Section */
+
+.section-contact{
+    background-color: var(--verydarkblue);
+}
+
+.contact-box{
+    margin:20px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: stretch;
+    height: 100%;
+}
+
+.contact-box h3{
+    font-style: italic;
+    color: var(--verylightblue);
+}
+
+.contact-primary-methods, .contact-form{
+    background-color: var(--darkblue);
+    padding: 20px;
+    margin: 0 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-primary-methods{
+    align-items: center;
+}
+
+.contact-primary-methods h3{
+    margin-right: 10px;
+}
+
+.contact-email, .contact-phone{
+    display: flex;
+}
+
+.contact-primary-methods a{
+    color: var(--white)
+}
+
+.contact-primary-methods a:hover{
+    color: var(--verylightblue)
+}
+
+.input-box{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.contact-form h3{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contact-form h4{
+    margin-bottom: 20px;
+    color: var(--white);
+    margin: 0;
+    font-style: italic;
+}
+
+.input-box input, .input-box textarea{
+    background-color: var(--verylightblue)
+}
