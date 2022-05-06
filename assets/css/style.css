@@ -13,6 +13,14 @@
     padding: 0;
 }
 
+/* Overwrite bootstrap values */
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    margin-bottom: 0;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
 body{
     font-family: 'Times New Roman', Times, serif;
     color: var(--white);
@@ -25,6 +33,7 @@ body p{
 
 section{
     padding: 30px;
+    border-bottom: #172531 3px solid;
 }
 
 h2{
@@ -38,10 +47,10 @@ h2{
 
 /* Header CSS */
 .section-header{
-    padding: 20px 35px;
+    padding: 10px 35px;
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--verydarkblue);
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
     color: white;
     position: sticky;
     display: flex;
@@ -49,8 +58,9 @@ h2{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 20px black;
     width:100%;
+    border-bottom: var(--verydarkblue) 2px solid;
 }
 
 .section-header h1{
@@ -64,6 +74,7 @@ h2{
 .header-shortcuts{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .header-shortcut{
@@ -97,7 +108,7 @@ h2{
     justify-content: center;
     width: min-content;
     align-items: center;
-    background-color: rgba(41, 66, 87, .75);
+    background-image: linear-gradient(rgb(23, 37, 49, .75),rgb(69, 111, 147, .75));
     border: solid 3px var(--verydarkblue);
     border-radius: 10px;
 }
@@ -115,12 +126,48 @@ h2{
 
 .hero-text p{
     margin: 20px auto;
+    text-shadow: 0 0 20px black;
+}
+
+/* Skills CSS */
+.section-skills{
+    background-image: linear-gradient(var(--verylightblue),silver);
+}
+
+.skills-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skill{
+    text-align: center;
+    margin: 20px 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: var(--verydarkblue) 2px solid;
+    background-color: var(--verylightblue);
+}
+
+.skill h3{
+    background-color: var(--verydarkblue);
+    padding: 10px;
+}
+
+.skill i{
+    font-size: 100px;
+    color: var(--verydarkblue);
+    display: inline-block;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--verylightblue);
 }
 
 /* Projects CSS */
 
 .section-projects{
-    background-color: var(--lightblue);
+    background-image: linear-gradient( var(--blue), var(--verylightblue));
 }
 
 .project-container{
@@ -135,7 +182,7 @@ h2{
     text-align: center;
     border: 3px var(--darkblue) solid;
     padding: 20px;
-    background-color: var(--blue);
+    background-image: linear-gradient(var(--darkblue),var(--lightblue));
 }
 
 .main-project-img{
@@ -151,7 +198,7 @@ h2{
 /* Contact Section */
 
 .section-contact{
-    background-color: var(--verydarkblue);
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
 }
 
 .contact-box{
@@ -169,16 +216,18 @@ h2{
 }
 
 .contact-primary-methods, .contact-form{
-    background-color: var(--darkblue);
+    background-image: linear-gradient(var(--darkblue),var(--blue));
     padding: 20px;
     margin: 0 20px;
     display:flex;
     flex-direction: column;
     justify-content: center;
+    border: var(--blue) 3px solid;
 }
 
 .contact-primary-methods{
     align-items: center;
+    border: var(--blue) 3px solid;
 }
 
 .contact-primary-methods h3{
@@ -231,6 +280,7 @@ h2{
 @media screen and (max-width:980px) {
     .bio-content{
         flex-wrap: wrap;
+        text-align: center;
     }
 
     .bio-content p{
@@ -251,7 +301,7 @@ h2{
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px) {
     .section-header h1{
         font-size: 36px;
     }
@@ -273,12 +323,30 @@ h2{
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width:575px) {
+    .section-header{
+    }
+    
     .section-projects{
         padding: 0;
     }
 
     .project-container{
         margin: 30px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .hero-img, .hero-text{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 310px){
+    .bio-content{
+        width: 90%;
+    }
+    .hero-img, .hero-text{
+        width: 90%;
     }
 }
