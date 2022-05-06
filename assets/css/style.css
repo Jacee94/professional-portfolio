@@ -143,25 +143,33 @@ h2{
 .skill{
     text-align: center;
     margin: 20px 30px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-radius: 20px;
     border: var(--verydarkblue) 2px solid;
-    background-color: var(--verylightblue);
+    background-image: linear-gradient(var(--verylightblue),white);
 }
 
 .skill h3{
-    background-color: var(--verydarkblue);
+    background-image: linear-gradient(var(--verydarkblue), var(--blue));
     padding: 10px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border: var(--verydarkblue) 3px solid;
+    text-shadow: black 0 0 10px;
+}
+
+.skill i:before{
+    display: initial;
 }
 
 .skill i{
     font-size: 100px;
-    color: var(--verydarkblue);
     display: inline-block;
     padding: 15px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    background-color: var(--verylightblue);
+    background-image: linear-gradient(var(--verydarkblue), var(--lightblue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Projects CSS */
