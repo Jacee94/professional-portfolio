@@ -13,6 +13,14 @@
     padding: 0;
 }
 
+/* Overwrite bootstrap values */
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    margin-bottom: 0;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
 body{
     font-family: 'Times New Roman', Times, serif;
     color: var(--white);
@@ -119,6 +127,41 @@ h2{
 .hero-text p{
     margin: 20px auto;
     text-shadow: 0 0 20px black;
+}
+
+/* Skills CSS */
+.section-skills{
+    background-image: linear-gradient(var(--verylightblue),silver);
+}
+
+.skills-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skill{
+    text-align: center;
+    margin: 20px 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: var(--verydarkblue) 2px solid;
+    background-color: var(--verylightblue);
+}
+
+.skill h3{
+    background-color: var(--verydarkblue);
+    padding: 10px;
+}
+
+.skill i{
+    font-size: 100px;
+    color: var(--verydarkblue);
+    display: inline-block;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--verylightblue);
 }
 
 /* Projects CSS */
