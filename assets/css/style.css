@@ -64,6 +64,7 @@ h2{
 .header-shortcuts{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .header-shortcut{
@@ -231,6 +232,7 @@ h2{
 @media screen and (max-width:980px) {
     .bio-content{
         flex-wrap: wrap;
+        text-align: center;
     }
 
     .bio-content p{
@@ -251,7 +253,7 @@ h2{
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px) {
     .section-header h1{
         font-size: 36px;
     }
@@ -273,12 +275,27 @@ h2{
     }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width:575px) {
     .section-projects{
         padding: 0;
     }
 
     .project-container{
         margin: 30px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .hero-img, .hero-text{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 310px){
+    .bio-content{
+        width: 90%;
+    }
+    .hero-img, .hero-text{
+        width: 90%;
     }
 }
