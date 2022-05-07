@@ -52,11 +52,11 @@ h2{
     flex-wrap: wrap;
     background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
     color: white;
-    position: sticky;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     text-align: center;
     text-shadow: 0 0 20px black;
     width:100%;
@@ -71,22 +71,30 @@ h2{
     color: var(--verylightblue)
 }
 
-.header-shortcuts{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.header-shortcuts button{
+    color:#f0f4f8;
+    font-size: x-large;
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
+}
+
+.dropdown-menu{
+    background-image: linear-gradient(var(--verylightblue),lightgray);
+}
+
+.dropdown-item:hover{
+    text-shadow: none;
 }
 
 .header-shortcut{
-    margin: 20px;
+    text-shadow: black 0 0 10px;
 }
 
-.header-shortcut a{
+.header-shortcuts div a{
     color:white;
-    text-decoration: none;
+    text-align: center;
 }
 
-.header-shortcut a:hover{
+.header-shortcut a h2:hover{
     color: var(--verylightblue);
 }
 
@@ -307,13 +315,7 @@ h2{
   }
 
 @media screen and (max-width:1200px){
-    .header-shortcut{
-        margin: 0 20px;
-    }
-    
-    .section-header{
-        justify-content: center;
-    }
+
 }
 
 @media screen and (max-width:993px) {
