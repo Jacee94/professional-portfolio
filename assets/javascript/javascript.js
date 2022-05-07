@@ -1,5 +1,6 @@
 var repoFavorites = [];
 var repoImageUrls = [];
+var repoImageDownloadUrls = [];
 
 var getUserRepos = function(user) {
     // format the github api url
@@ -40,23 +41,25 @@ function checkRepoFavorites(repoData){
 function getReposInfo(){
     // format the github api url
     for(var i = 0; i < repoFavorites.length; i++){
-        var apiUrl = "https://api.github.com/repos/" + repoFavorites[i].login + "/" + repoFavorites[i].repo +"/contents/assets/images";
+        var apiUrl = "https://api.github.com/repos/" + repoFavorites[i].login + "/" + repoFavorites[i].repo +"/contents/assets/images/screenshot.JPG";
         repoImageUrls.push(apiUrl);
     }
 
     console.log(repoImageUrls);
 
-    // Make a request to the url
-    fetch(repoImageUrls[0]).then(function(response) {
-        // request was successful
-        if (response.ok) {
-            response.json().then(function(data) {
-                console.log(data);
-            });
-        } else {
-            alert('Error: GitHub REPO not found');
-        }
-    })
+    // Request Image download URLS from each repos assets folder
+    for(var i = 0; i < repoImageUrls.length; i++){
+        fetch(repoImageUrls[i]).then(function(response) {
+            // request was successful
+            if (response.ok) {
+                response.json().then(function(data) {
+                    console.log(data);
+                });
+            } else {
+                alert('Error: GitHub REPO not found');
+            }
+        })
+    }
 }
 
 getUserRepos();
