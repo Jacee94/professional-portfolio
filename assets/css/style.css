@@ -25,6 +25,7 @@ body{
     font-family: 'Times New Roman', Times, serif;
     color: var(--white);
     line-height: 1.5;
+    background-color: var(--verydarkblue);
 }
 
 body p{
@@ -34,6 +35,8 @@ body p{
 section{
     padding: 30px;
     border-bottom: #172531 3px solid;
+    margin: 3px auto;
+    border-radius: 20px;
 }
 
 h2{
@@ -104,6 +107,8 @@ h2{
     background-image: url(../images/bio-bg.jpg);
     background-size: cover;
     background-position: center;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .section-about-me h2{
@@ -220,6 +225,8 @@ h2{
 
 .section-contact{
     background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .contact-box{
