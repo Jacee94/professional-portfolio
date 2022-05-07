@@ -137,6 +137,11 @@ h2{
 .skills-container{
     display: flex;
     justify-content: center;
+}
+
+.skills-scroller{
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -275,6 +280,32 @@ h2{
     background-color: var(--verylightblue)
 }
 
+/* Cutom scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-image: linear-gradient(var(--verylightblue),silver);
+    border-radius: 10px;
+    border: var(--verydarkblue) 2px solid;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(var(--blue), var(--lightblue));
+    border-radius: 10px;
+    border: var(--verydarkblue) 2px solid;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--blue);
+  }
+
 @media screen and (max-width:1200px){
     .header-shortcut{
         margin: 0 20px;
@@ -285,7 +316,7 @@ h2{
     }
 }
 
-@media screen and (max-width:980px) {
+@media screen and (max-width:993px) {
     .bio-content{
         flex-wrap: wrap;
         text-align: center;
@@ -298,6 +329,18 @@ h2{
     .hero-img, .hero-text{
         width: 400px;
         margin: 20px;
+    }
+
+    .skills-container{
+        display: flex;
+        flex: 1;
+        overflow: auto;
+        justify-content: start;
+    }
+
+    .skills-scroller{
+        flex-wrap: nowrap;
+        min-width: min-content;
     }
 
     .main-project, .main-project img{
@@ -332,9 +375,6 @@ h2{
 }
 
 @media screen and (max-width:575px) {
-    .section-header{
-    }
-    
     .section-projects{
         padding: 0;
     }
