@@ -31,34 +31,51 @@ function checkRepoFavorites(repoData){
                 }
                 repoFavorites.push(userObj);
             }
-            
         }
     }
 
-    getReposInfo();
+    createProjectCards(true);
 }
 
-function getReposInfo(){
+function getReposInfo(index){
     // format the github api url
-    for(var i = 0; i < repoFavorites.length; i++){
-        var apiUrl = "https://api.github.com/repos/" + repoFavorites[i].login + "/" + repoFavorites[i].repo +"/contents/assets/images/screenshot.JPG";
-        repoImageUrls.push(apiUrl);
-    }
+    var apiUrl = "https://api.github.com/repos/" + repoFavorites[index].login + "/" + repoFavorites[index].repo +"/contents/assets/images/screenshot.JPG";
+    repoImageUrls.push(apiUrl);
 
-    console.log(repoImageUrls);
+    //Request Image download URLS from each repos assets folder
+    fetch(repoImageUrls[index]).then(function(response) {
+        // request was successful
+        if (response.ok) {
+            response.json().then(function(data) {
+                var downloadURL = data.download_url;
+                $("img[dataset-uid='" + index + "'").attr("src", downloadURL);
+            });
+        } else {
+            alert('Error: GitHub REPO not found');
+        }
+    })
+    
+}
 
-    // Request Image download URLS from each repos assets folder
-    for(var i = 0; i < repoImageUrls.length; i++){
-        fetch(repoImageUrls[i]).then(function(response) {
-            // request was successful
-            if (response.ok) {
-                response.json().then(function(data) {
-                    console.log(data);
-                });
-            } else {
-                alert('Error: GitHub REPO not found');
-            }
-        })
+function createProjectCards(fav){
+    // If we're creating my favorite projects, then use repoFavorites array
+    if(fav){
+        for(var i = 0; i < repoFavorites.length; i++){
+            //Create card element
+            var card = $("<div>")
+                .addClass("card")
+                .attr("style", "width: 300px;")
+                .attr("dataset-uid", i);
+            
+            var img = $("<img>")
+                .addClass("card-img-top")
+                .attr("dataset-uid", i);
+            
+            card.append(img);
+            $(".section-projects").append(card);
+
+            getReposInfo(i);
+        }
     }
 }
 
