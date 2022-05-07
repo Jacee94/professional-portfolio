@@ -1,3 +1,4 @@
+var repoFavoritesAll = [];
 var repoFavorites = [];
 var repoImageUrls = [];
 var repoImageDownloadUrls = [];
@@ -29,6 +30,8 @@ function checkRepoFavorites(repoData){
                     login: repoData[i].owner.login,
                     repo: repoData[i].name
                 }
+                repoFavoritesAll.push(repoData[i]);
+                console.log(repoFavoritesAll);
                 repoFavorites.push(userObj);
             }
         }
@@ -62,17 +65,31 @@ function createProjectCards(fav){
     if(fav){
         for(var i = 0; i < repoFavorites.length; i++){
             //Create card element
+            console.log(repoFavorites);
             var card = $("<div>")
-                .addClass("card")
+                .addClass("card project")
                 .attr("style", "width: 300px;")
                 .attr("dataset-uid", i);
             
             var img = $("<img>")
                 .addClass("card-img-top")
-                .attr("dataset-uid", i);
+                .attr("dataset-uid", i)
+                .attr("style","height:200px; object-fit: cover")
+
+            var divbody = $("<div>")
+                .addClass("card-body")
             
-            card.append(img);
-            $(".section-projects").append(card);
+            var cardTitle = $("<h5>")
+                .addClass("card-title")
+                .html(repoFavoritesAll[i].name);
+            
+            var cardP = $("<p>")
+                .addClass("card-text")
+                .html(repoFavoritesAll[i].description)
+
+            divbody.append(cardTitle, cardP);
+            card.append(img, divbody);
+            $(".project-container").append(card);
 
             getReposInfo(i);
         }
