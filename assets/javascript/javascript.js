@@ -2,13 +2,18 @@ var repoFavoritesAll = [];
 var repoFavorites = [];
 var repoImageUrls = [];
 var repoImageDownloadUrls = [];
+const token = "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"
 
 var getUserRepos = function(user) {
     // format the github api url
     var apiUrl = "https://api.github.com/users/jacee94/repos";
   
     // make a request to the url
-    fetch(apiUrl).then(function(response) {
+    fetch(apiUrl,{
+        headers: {
+            authorization: "token " + token
+        }
+    }).then(function(response) {
         // request was successful
         if (response.ok) {
             response.json().then(function(data) {
@@ -31,7 +36,6 @@ function checkRepoFavorites(repoData){
                     repo: repoData[i].name
                 }
                 repoFavoritesAll.push(repoData[i]);
-                console.log(repoFavoritesAll);
                 repoFavorites.push(userObj);
             }
         }
@@ -46,7 +50,10 @@ function getReposInfo(index){
     repoImageUrls.push(apiUrl);
 
     //Request Image download URLS from each repos assets folder
-    fetch(repoImageUrls[index]).then(function(response) {
+    fetch(repoImageUrls[index],{
+        headers: {
+            authorization: "token " + token
+        }}).then(function(response) {
         // request was successful
         if (response.ok) {
             response.json().then(function(data) {
@@ -57,7 +64,34 @@ function getReposInfo(index){
             alert('Error: GitHub REPO not found');
         }
     })
-    
+}
+
+function getRepoDeploymentUrl(index){
+    var deploymentsUrl = repoFavoritesAll[index].deployments_url;
+
+    fetch(deploymentsUrl,{
+        headers: {
+            authorization: "token " + token
+        }}).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                console.log(data);
+                // Go deeper down the rabbit hole
+                var depId = data[0].id;
+                fetch(deploymentsUrl + "/" + depId + "/statuses",{
+                    headers: {
+                        authorization: "token " + token
+                    }}).then(function(response2){
+                    if(response2.ok){
+                        response2.json().then(function(data2){
+                            console.log(data2[0].environment_url);
+                            $("a[dataset-uid='"+ index + "'").attr("href", (data2[0].environment_url));
+                        })
+                    }
+                })
+            });
+        }
+    });
 }
 
 function createProjectCards(fav){
@@ -65,7 +99,6 @@ function createProjectCards(fav){
     if(fav){
         for(var i = 0; i < repoFavorites.length; i++){
             //Create card element
-            console.log(repoFavorites);
             var card = $("<div>")
                 .addClass("card project")
                 .attr("style", "width: 300px;")
@@ -87,10 +120,29 @@ function createProjectCards(fav){
                 .addClass("card-text")
                 .html(repoFavoritesAll[i].description)
 
-            divbody.append(cardTitle, cardP);
+            var btnHolder = $("<div>")
+                .addClass("btn-holder")
+
+            var gitHubBtn = $("<a>")
+                .addClass("btn project-btn")
+                .attr("href", repoFavoritesAll[i].html_url)
+                .html("Repo Link!")
+                .attr("role", "button")
+                .attr("target", "_blank");
+            
+            var liveBtn = $("<a>")
+                .addClass("btn project-btn")
+                .html("Deployed Page!")
+                .attr("role", "button")
+                .attr("target", "_blank")
+                .attr("dataset-uid", i);
+            
+            btnHolder.append(gitHubBtn,liveBtn);
+            divbody.append(cardTitle, cardP, btnHolder);
             card.append(img, divbody);
             $(".project-container").append(card);
-
+            
+            getRepoDeploymentUrl(i);
             getReposInfo(i);
         }
     }

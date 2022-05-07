@@ -225,14 +225,40 @@ h2{
     margin: 30px 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .project{
     margin: 20px;
+    border: black 2px solid;
+    border-radius: 10px;
+}
+
+.project img{
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.btn-holder{
+    justify-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-btn{
+    color: white;
+    background-image: linear-gradient(var(--blue),var(--lightblue));
 }
 
 .card-body{
+    display: flex;
+    flex-direction: column;
     background-color: var(--verydarkblue);
+    text-align: center;
+}
+
+.card-body p{
+    flex-grow: 3;
 }
 
 /* Contact Section */
