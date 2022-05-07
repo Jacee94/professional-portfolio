@@ -2,18 +2,13 @@ var repoFavoritesAll = [];
 var repoFavorites = [];
 var repoImageUrls = [];
 var repoImageDownloadUrls = [];
-const token = "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"
 
 var getUserRepos = function(user) {
     // format the github api url
     var apiUrl = "https://api.github.com/users/jacee94/repos";
   
     // make a request to the url
-    fetch(apiUrl,{
-        headers: {
-            authorization: "token " + token
-        }
-    }).then(function(response) {
+    fetch(apiUrl).then(function(response) {
         // request was successful
         if (response.ok) {
             response.json().then(function(data) {
@@ -50,10 +45,7 @@ function getReposInfo(index){
     repoImageUrls.push(apiUrl);
 
     //Request Image download URLS from each repos assets folder
-    fetch(repoImageUrls[index],{
-        headers: {
-            authorization: "token " + token
-        }}).then(function(response) {
+    fetch(repoImageUrls[index]).then(function(response) {
         // request was successful
         if (response.ok) {
             response.json().then(function(data) {
@@ -69,19 +61,13 @@ function getReposInfo(index){
 function getRepoDeploymentUrl(index){
     var deploymentsUrl = repoFavoritesAll[index].deployments_url;
 
-    fetch(deploymentsUrl,{
-        headers: {
-            authorization: "token " + token
-        }}).then(function(response){
+    fetch(deploymentsUrl).then(function(response){
         if(response.ok){
             response.json().then(function(data){
                 console.log(data);
                 // Go deeper down the rabbit hole
                 var depId = data[0].id;
-                fetch(deploymentsUrl + "/" + depId + "/statuses",{
-                    headers: {
-                        authorization: "token " + token
-                    }}).then(function(response2){
+                fetch(deploymentsUrl + "/" + depId + "/statuses").then(function(response2){
                     if(response2.ok){
                         response2.json().then(function(data2){
                             console.log(data2[0].environment_url);
