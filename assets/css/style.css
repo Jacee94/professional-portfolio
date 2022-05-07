@@ -50,6 +50,7 @@ h2{
 
 /* Header CSS */
 .section-header{
+    z-index: 999999;
     padding: 10px 35px;
     display: flex;
     flex-wrap: wrap;
@@ -82,7 +83,7 @@ h2{
     color: var(--verylightblue) !important;
 }
 
-.btn:hover{
+#dropdownMenuButton:hover{
     color: white !important;
 }
 
@@ -227,22 +228,37 @@ h2{
     flex-wrap: wrap;
 }
 
-.main-project, .secondary-project{
-    margin: 20px 20px;
+.project{
+    margin: 20px;
+    border: black 2px solid;
+    border-radius: 10px;
+}
+
+.project img{
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.btn-holder{
+    justify-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-btn{
+    color: white;
+    background-image: linear-gradient(var(--blue),var(--lightblue));
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--verydarkblue);
     text-align: center;
-    border: 3px var(--darkblue) solid;
-    padding: 20px;
-    background-image: linear-gradient(var(--darkblue),var(--lightblue));
 }
 
-.main-project-img{
-    max-width: 800px;
-    border: 3px var(--verydarkblue) solid;
-}
-
-.secondary-project-img{
-    max-width: 400px;
-    border: 3px var(--verydarkblue) solid;
+.card-body p{
+    flex-grow: 3;
 }
 
 /* Contact Section */
