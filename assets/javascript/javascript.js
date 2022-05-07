@@ -172,3 +172,7 @@ $('.dropdown').hover(function() {
 });
 
 $(".dropdown-menu").width($("#dropdownMenuButton").outerWidth() + "px");
+
+// Bootstrap enable tooltips code
+
+$("#projects-tooltip").tooltip();
