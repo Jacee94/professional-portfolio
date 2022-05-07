@@ -15,12 +15,18 @@ $(".header-shortcut").on("click", function(){
 
         setTimeout(function(){
             shortcutClicked = false;
-        }, 1000);
+        }, 750);
     }
 });
+
+$(window).resize(function(){
+    $(".dropdown-menu").width($("#dropdownMenuButton").outerWidth() + "px");
+})
 
 $('.dropdown').hover(function() {
     $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
 }, function() {
     $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp()
 });
+
+$(".dropdown-menu").width($("#dropdownMenuButton").outerWidth() + "px");

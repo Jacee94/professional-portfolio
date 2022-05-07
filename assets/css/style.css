@@ -34,9 +34,9 @@ body p{
 
 section{
     padding: 30px;
-    border-bottom: #172531 3px solid;
     margin: 3px auto;
     border-radius: 20px;
+    border: black 2px solid;
 }
 
 h2{
@@ -71,17 +71,44 @@ h2{
 }
 
 .section-header h1:hover{
-    color: var(--verylightblue)
+    color: var(--verylightblue);
+}
+
+.dropdown-menu{
+    min-width: 0;
+}
+
+.dropdownmenu button{
+    color: var(--verylightblue) !important;
+}
+
+.btn:hover{
+    color: white !important;
+}
+
+.header-shortcuts{
+    margin-left: 35px;
 }
 
 .header-shortcuts button{
     color:#f0f4f8;
-    font-size: x-large;
+    font-size: 30px;
     background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
+}
+
+.header-shortcuts div a{
+    color:white;
+    text-align: center;
+    font-size: 25px;
 }
 
 .dropdown-menu{
     background-image: linear-gradient(var(--verylightblue),lightgray);
+}
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
 }
 
 .dropdown-item:hover{
@@ -90,11 +117,6 @@ h2{
 
 .header-shortcut{
     text-shadow: black 0 0 10px;
-}
-
-.header-shortcuts div a{
-    color:white;
-    text-align: center;
 }
 
 .header-shortcut a h2:hover{
@@ -109,6 +131,8 @@ h2{
     background-position: center;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    margin-top: 0;
+    border-top: 0;
 }
 
 .section-about-me h2{
@@ -321,8 +345,18 @@ h2{
     background: var(--blue);
   }
 
-@media screen and (max-width:1200px){
+@media screen and (max-width:1265px){
+    .skills-container{
+        display: flex;
+        flex: 1;
+        overflow: auto;
+        justify-content: start;
+    }
 
+    .skills-scroller{
+        flex-wrap: nowrap;
+        min-width: min-content;
+    }
 }
 
 @media screen and (max-width:993px) {
@@ -362,12 +396,17 @@ h2{
 }
 
 @media screen and (max-width:768px) {
+    
     .section-header h1{
         font-size: 36px;
     }
 
-    .header-shortcut h2{
-        font-size: 30px;
+    .header-shortcuts button{
+        font-size: 20px;
+    }
+
+    .header-shortcut{
+        font-size: 20px !important;
     }
     
     .hero-img, .hero-text{
