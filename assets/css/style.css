@@ -221,6 +221,36 @@ h2{
     background-image: linear-gradient( var(--blue), var(--verylightblue));
 }
 
+#projects-tooltip-btn{
+    color:#f0f4f8;
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    font-size: large;
+    justify-self: right;
+    position: absolute;
+}
+
+.projects-title{
+    position: relative;
+}
+
+.arrow{
+    content: " ";
+    position: absolute;
+    top: 50% !important;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+.tooltip{
+    left: 10px !important;
+}
+
 .project-container{
     margin: 30px 20px;
     display: flex;
