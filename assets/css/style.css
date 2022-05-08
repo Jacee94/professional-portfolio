@@ -10,7 +10,10 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+}
+
+.btn {
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
 }
 
 /* Overwrite bootstrap values */
@@ -189,6 +192,7 @@ h2{
     border-radius: 20px;
     border: var(--verydarkblue) 2px solid;
     background-image: linear-gradient(var(--verylightblue),white);
+    display: inline-block
 }
 
 .skill h3{
@@ -198,6 +202,7 @@ h2{
     border-bottom-right-radius: 17px;
     border: var(--verydarkblue) 3px solid;
     text-shadow: black 0 0 10px;
+    white-space: nowrap;
 }
 
 .skill i:before{
@@ -215,10 +220,66 @@ h2{
     -webkit-text-fill-color: transparent;
 }
 
+.modal-title{
+    color: var(--blue);
+}
+
+.modal-content{
+    background-image: linear-gradient(var(--verylightblue), silver);
+}
+
+.modal-body{
+    display: flex;
+    overflow: auto;
+    margin: 20px;
+}
+
+.close{
+    border: 0;
+    font-size: large;
+    font-weight: bolder;
+    color:white;
+}
+
+.skills-close-btn{
+    margin: 5px auto;
+}
+
 /* Projects CSS */
 
 .section-projects{
     background-image: linear-gradient( var(--blue), var(--verylightblue));
+}
+
+#projects-tooltip-btn{
+    color:#f0f4f8;
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    font-size: large;
+    justify-self: right;
+    position: absolute;
+}
+
+.projects-title{
+    position: relative;
+}
+
+.arrow{
+    content: " ";
+    position: absolute;
+    top: 100% !important;
+    right: 50%; /* To the left of the tooltip */
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent;
+}
+
+.tooltip{
+    top: -10px !important;
+    padding: 0;
 }
 
 .project-container{
@@ -259,6 +320,80 @@ h2{
 
 .card-body p{
     flex-grow: 3;
+}
+
+/* Links section */
+
+.section-links{
+    background-image: linear-gradient(var(--darkblue), var(--verylightblue));
+}
+
+.link-cards-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.github-user-card, .linkedin-card{
+    margin: 10px 30px;
+}
+
+.badge-base iframe{
+    height: 242px;
+    width: 251px;
+}
+
+.user-card{
+    background-image: linear-gradient(var(--verydarkblue), var(--lightblue));
+    width: 260px;
+}
+
+.user-card-icon{
+    font-size: 30px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.user-card-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-card-body h3 a{
+    text-decoration: none;
+}
+
+.user-card-body h3 a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn a:hover, .btn:hover{
+    text-decoration: none;
+    color: var(--verylightblue);
+}
+
+.github-avatar{
+    border-radius: 50%;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: 10px auto;
+}
+
+.span-holder{
+    margin: 10px;
+    background-color: var(--blue);
+}
+
+.span-holder span{
+    margin: 5px 10px;
 }
 
 /* Contact Section */
@@ -400,14 +535,6 @@ h2{
     .skills-scroller{
         flex-wrap: nowrap;
         min-width: min-content;
-    }
-
-    .main-project, .main-project img{
-        max-width: 95%;
-    }
-    
-    .secondary-project, .secondary-project-img{
-        max-width: 70%;
     }
 }
 

@@ -3,6 +3,64 @@ var repoFavorites = [];
 var repoImageUrls = [];
 var repoImageDownloadUrls = [];
 
+function getUserBadge(){
+    const apiRequest = "https://api.github.com/users/jacee94";
+    
+    fetch(apiRequest).then(function(response){
+        if(response.ok){
+            response.json().then(function(data){
+                createUserBadge(data);
+            });
+        }
+    });
+}
+
+function createUserBadge(data){
+    console.log(data);
+    var card = $("<div>")
+        .addClass("card user-card")
+
+    var cardH = $("<div>")
+        .addClass("card-header")
+        .html("<h3>GitHub</h3>");
+
+    var cardImgTop = $("<div>")
+        .addClass("card-img-top github-avatar")
+        .attr("style", "background-size: contain; background-image: url(" + data.avatar_url + ")");
+
+    var gitHubIcon = $("<i>")
+        .addClass("devicon-github-original user-card-icon")
+
+    cardImgTop.append(gitHubIcon);
+    
+    var cardBody = $("<div>")
+        .addClass("user-card-body");
+
+    var userName = $("<h3>")
+        .html("<a href='" + data.html_url + "'>" + data.login + "</a>")
+        .addClass("btn");
+    
+    var spanDiv = $("<div>")
+        .attr("style", "display: flex; flex-wrap: wrap; justify-content: center")
+        .addClass("span-holder");
+
+    var repos = $("<span>")
+        .html("Repos: " + data.public_repos);
+
+    var followers = $("<span>")
+        .html("Followers: " + data.followers);
+
+    var following = $("<span>")
+        .html("Following: " + data.following);
+    
+    spanDiv.append(repos, followers, following);
+    cardBody.append(userName, spanDiv);
+    card.append(cardH, cardImgTop, cardBody);
+    $(".github-user-card").append(card);
+}
+
+getUserBadge();
+
 var getUserRepos = function(user) {
     // format the github api url
     var apiUrl = "https://api.github.com/users/jacee94/repos";
@@ -160,9 +218,13 @@ $(".header-shortcut").on("click", function(){
 });
 
 // Drop down navigation functionality
-
 $(window).resize(function(){
     $(".dropdown-menu").width($("#dropdownMenuButton").outerWidth() + "px");
+
+    parentHeight = $(".projects-title").outerHeight();
+    selfHeight = $("#projects-tooltip-btn").outerHeight();
+    posTop = (parentHeight/2) - (selfHeight/2);
+    $("#projects-tooltip-btn").css("transform","translateX(10px)").css("top", posTop + "px").css("position", "absolute");
 })
 
 $('.dropdown').hover(function() {
@@ -172,3 +234,14 @@ $('.dropdown').hover(function() {
 });
 
 $(".dropdown-menu").width($("#dropdownMenuButton").outerWidth() + "px");
+
+// Bootstrap enable tooltips code
+$("#projects-tooltip-btn").tooltip();
+
+var parentHeight = $(".projects-title").outerHeight();
+var selfHeight = $("#projects-tooltip-btn").outerHeight();
+var posTop = (parentHeight/2) - (selfHeight/2);
+$("#projects-tooltip-btn").css("transform","translateX(10px)").css("top", posTop + "px").css("position", "absolute")
+
+// Bootstrap enable popover code
+$("#skills-popover").popover()
