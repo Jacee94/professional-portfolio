@@ -239,16 +239,17 @@ h2{
 .arrow{
     content: " ";
     position: absolute;
-    top: 50% !important;
-    right: 100%; /* To the left of the tooltip */
-    margin-top: -5px;
+    top: 100% !important;
+    right: 50%; /* To the left of the tooltip */
+    margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent black transparent transparent;
+    border-color: black transparent transparent;
 }
 
 .tooltip{
-    left: 10px !important;
+    top: -10px !important;
+    padding: 0;
 }
 
 .project-container{
