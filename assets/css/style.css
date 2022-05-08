@@ -10,7 +10,10 @@
 *{
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+}
+
+.btn {
+    background-image: linear-gradient(var(--verydarkblue),var(--lightblue));
 }
 
 /* Overwrite bootstrap values */
@@ -189,6 +192,7 @@ h2{
     border-radius: 20px;
     border: var(--verydarkblue) 2px solid;
     background-image: linear-gradient(var(--verylightblue),white);
+    display: inline-block
 }
 
 .skill h3{
@@ -198,6 +202,7 @@ h2{
     border-bottom-right-radius: 17px;
     border: var(--verydarkblue) 3px solid;
     text-shadow: black 0 0 10px;
+    white-space: nowrap;
 }
 
 .skill i:before{
@@ -213,6 +218,31 @@ h2{
     background-image: linear-gradient(var(--verydarkblue), var(--lightblue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.modal-title{
+    color: var(--blue);
+}
+
+.modal-content{
+    background-image: linear-gradient(var(--verylightblue), silver);
+}
+
+.modal-body{
+    display: flex;
+    overflow: auto;
+    margin: 20px;
+}
+
+.close{
+    border: 0;
+    font-size: large;
+    font-weight: bolder;
+    color:white;
+}
+
+.skills-close-btn{
+    margin: 5px auto;
 }
 
 /* Projects CSS */
