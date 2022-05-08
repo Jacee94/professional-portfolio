@@ -322,6 +322,80 @@ h2{
     flex-grow: 3;
 }
 
+/* Links section */
+
+.section-links{
+    background-image: linear-gradient(var(--darkblue), var(--verylightblue));
+}
+
+.link-cards-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.github-user-card, .linkedin-card{
+    margin: 10px 30px;
+}
+
+.badge-base iframe{
+    height: 242px;
+    width: 251px;
+}
+
+.user-card{
+    background-image: linear-gradient(var(--verydarkblue), var(--lightblue));
+    width: 260px;
+}
+
+.user-card-icon{
+    font-size: 30px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.user-card-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.user-card-body h3 a{
+    text-decoration: none;
+}
+
+.user-card-body h3 a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn a:hover, .btn:hover{
+    text-decoration: none;
+    color: var(--verylightblue);
+}
+
+.github-avatar{
+    border-radius: 50%;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: 10px auto;
+}
+
+.span-holder{
+    margin: 10px;
+    background-color: var(--blue);
+}
+
+.span-holder span{
+    margin: 5px 10px;
+}
+
 /* Contact Section */
 
 .section-contact{
@@ -461,14 +535,6 @@ h2{
     .skills-scroller{
         flex-wrap: nowrap;
         min-width: min-content;
-    }
-
-    .main-project, .main-project img{
-        max-width: 95%;
-    }
-    
-    .secondary-project, .secondary-project-img{
-        max-width: 70%;
     }
 }
 
