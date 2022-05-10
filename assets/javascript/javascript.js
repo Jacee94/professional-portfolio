@@ -247,5 +247,7 @@ $("#projects-tooltip-btn").css("transform","translateX(10px)").css("top", posTop
 $("#skills-popover").popover()
 
 window.onload = (event) => {
-    $("link[href='https://static-exp1.licdn.com/sc/h/bvct6szbjq1lhkmq97l688bk8'").attr("disabled", "disabled");
+    setTimeout(() => {
+        $("link[href='https://static-exp1.licdn.com/sc/h/bvct6szbjq1lhkmq97l688bk8'").attr("disabled", "disabled");
+    }, 1000); 
 };
