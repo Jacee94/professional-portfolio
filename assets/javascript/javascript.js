@@ -245,3 +245,7 @@ $("#projects-tooltip-btn").css("transform","translateX(10px)").css("top", posTop
 
 // Bootstrap enable popover code
 $("#skills-popover").popover()
+
+window.onload = (event) => {
+    $("link[href='./assets/css/style.css'").attr("disabled", "disabled");
+};
