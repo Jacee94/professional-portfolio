@@ -37,7 +37,7 @@ function createUserBadge(data){
         .addClass("user-card-body");
 
     var userName = $("<h3>")
-        .html("<a href='" + data.html_url + "'>" + data.login + "</a>")
+        .html("<a href='" + data.html_url + "' target='_blank'>" + data.login + "</a>")
         .addClass("btn");
     
     var spanDiv = $("<div>")
